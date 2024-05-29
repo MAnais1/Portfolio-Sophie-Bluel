@@ -82,3 +82,24 @@ async function filtrerCategories() {
   });
 }
 filtrerCategories();
+
+/**si utilisateur connecté */
+const connecte=window.sessionStorage.loged;
+const loginOut=document.getElementById("loginOut");
+const modif= document.getElementById("modif");
+const edit=document.getElementById("edition")
+
+
+if (connecte=="true") {
+  edit.innerHTML=`<i class="fa-regular fa-pen-to-square"></i> Mode édition`;
+  edit.classList.add("edit")
+  loginOut.textContent="Logout";
+  modif.innerHTML= `<i class="fa-regular fa-pen-to-square"></i> modifier`;
+  filtres.remove();
+  loginOut.addEventListener("click",()=>{
+    window.sessionStorage.loged=false;
+  });
+}
+
+/**Modale */
+ 
