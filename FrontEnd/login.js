@@ -19,20 +19,26 @@ async function recuperationUtilisateurs(){
     
 }
 
+
 /**fonction connexion */
 async function login() {
     const utilisateurs = await recuperationUtilisateurs();
     console.log(utilisateurs);
+    const token=utilisateurs.token;
+    const userId=utilisateurs.id;
+    console.log(token);
+    window.localStorage.setItem("token",token)
+    window.localStorage.setItem("userId",userId)
     form.addEventListener("submit",(e)=>{
         e.preventDefault();
         const emailUti=email.value;
         const mdpUti=password.value;
         console.log(emailUti, mdpUti);
         
-            if (reponseForm.email==emailUti && 
-                reponseForm.password==mdpUti) {
+            if (reponseForm.email===emailUti && 
+                reponseForm.password===mdpUti) {
                     window.sessionStorage.loged= true;
-                    window.location.href="./index.html"
+                   window.location.href="./index.html"
             } else {
                 email.classList.add("inputErreur");
                 password.classList.add("inputErreur");

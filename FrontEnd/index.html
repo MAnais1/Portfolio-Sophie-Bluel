@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="https://kit.fontawesome.com/77f898ea3f.js" crossorigin="anonymous"></script>
-	
+	<script src="index.js" defer></script>
 </head>
 <body>
 	<div id="edition"></div>
@@ -39,7 +39,7 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets<a href="" id="modif"></a></h2>
+		<h2>Mes Projets<span id="modif"></span></h2>
 		
 		<div id="filtres"></div>
 		<div  id="galerie" class="gallery">
@@ -68,13 +68,39 @@
 	</nav>
 </footer>
 <div id="modale" class="modale">
-	<div class="modaleBoite">
-		<i class="fa-solid fa-xmark"></i>
-		<h3>Galerie photo</h3>
-		<div class="modaleGalerie"></div>
-		<button>Ajouter une photo</button>
+	<div id="modaleBoite" class="modaleBoite">
+		<i  id="croix" class="fa-solid fa-xmark croix"></i>
+		<h3 id="titreModale">Galerie photo</h3>
+		<div id="modaleGalerie" class="modaleGalerie"></div>
+		<button id="btnPhoto">Ajouter une photo</button>
+	</div>
+	<div id="modaleBoiteAjout" class="modaleBoiteAjout">
+		<i id="fleche" class="fa-solid fa-arrow-left fleche"></i>
+		<i  id="croixAjout" class="fa-solid fa-xmark croix"></i>
+		<h3 id="titreModaleAjout">Ajout photo</h3>
+		<form  enctype="multipart/form-data" method="post" id="modaleFormAjout" class="modaleFormAjout">
+			<p class="formPhoto">
+				<img class="visuPhoto" src="#" alt="prévisualisation photo">
+				<label  id="labelVisu" for="photo"><i class="fa-regular fa-image"></i><br> <span class="btnInputSelection">+ Ajouter photo</span><br>
+				<span>jpg, png : 4mo max</span></label>
+				<input type="file" id="photo" name="photo" accept="image/png, image/jpeg" />
+				
+			</p>
+			<p class="formTitre">
+				<label for="titrePhoto">Titre</label>
+				<input type="text" id="titrePhoto" name="titrePhoto">
+			</p>
+			<p class="formCategorie">
+				<label for="categoriePhoto">Catégorie</label>
+				<select name="categoriePhoto" id="categoriePhoto" >
+					<option value=""></option>
+				</select>
+				<i class="fa-solid fa-chevron-down"></i>
+			</p>
+			<button id="btnAjout" class="nonValide">Valider</button>
+		</form>
 	</div>
 </div>
-<script src="index.js"></script>
+
 </body>
 </html>
