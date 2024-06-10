@@ -232,32 +232,9 @@ async function afficherSelection() {
 }
 afficherSelection();
 
-/** fonction pour vérifier que le formulaire est correctement rempli */
-const btnValidation=document.getElementById("btnAjout");
-const formulaire = document.getElementById("modaleFormAjout");
-
-
-function formComplet() {
-
-const photo=inputPhoto.files[0];
-console.log(photo);
-const titre=document.getElementById("titrePhoto");
-const categorie=document.getElementById("categoriePhoto")
-
-formulaire.addEventListener("input",()=>{
-    if (!photo=="" && !titre.value=="" && !categorie.value=="" ) {
-      btnValidation.classList.add("valide");
-    }
-    else{
-      btnValidation.classList.add("nonValide");
-    }
-  })
-}
-
-formComplet();
-
 /**Post pour ajouter une photo */
-
+const formulaire = document.getElementById("modaleFormAjout");
+const notif = document.getElementById("notif");
 
 formulaire.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -294,12 +271,44 @@ formulaire.addEventListener("submit", async (e) => {
     .then((response) => response.json())
     .then((response) => {
       console.log(response);
-      creationProjet(projet);
+      (notif.textContent = "Votre photo a été ajoutée dans votre galerie."),
+        notif.classList.add("ajout");
+      affichageGalerie();
+      affichageGalerieModale();
+      formulaire.reset();
+      visuPhoto.style.display = "none";
+      labelVisuPhoto.style.display = "flex";
     })
     .catch((error) => {
       console.log("l'erreur est", error);
     });
 });
 
-
-
+/** fonction pour vérifier que le formulaire est correctement rempli */
+async function formComplet() {
+  await formulaire.addEventListener("change", () => {
+    const btnValidation = document.getElementById("btnAjout");
+    const photo = inputPhoto.files[0];
+    console.log(photo);
+    const titre = document.getElementById("titrePhoto");
+    console.log(titre.value);
+    const categorie = document.getElementById("categoriePhoto");
+    console.log(categorie.value);
+    if (!photo == "" && !titre.value == "" && !categorie.value == "") {
+      btnValidation.classList.add("valide");
+      btnValidation.classList.remove("button");
+      btnValidation.classList.remove("nonValide");
+      console.log("ca fonctionne ");
+      (notif.textContent = "Vous pouvez valider le formulaire."),
+        notif.classList.add("ajout");
+      notif.classList.remove("echec");
+    } else {
+      btnValidation.classList.add("nonValide");
+      btnValidation.classList.remove("button");
+      console.log("le form pas correctement renseigne");
+      (notif.textContent = "Veuillez remplir tous les champs du formulaire."),
+        notif.classList.add("echec");
+    }
+  });
+}
+formComplet();

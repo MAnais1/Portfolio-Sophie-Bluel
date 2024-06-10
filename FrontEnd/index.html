@@ -83,22 +83,23 @@
 				<img class="visuPhoto" src="#" alt="prévisualisation photo">
 				<label  id="labelVisu" for="photo"><i class="fa-regular fa-image"></i><br> <span class="btnInputSelection">+ Ajouter photo</span><br>
 				<span>jpg, png : 4mo max</span></label>
-				<input type="file" id="photo" name="photo" accept="image/png, image/jpeg" />
+				<input type="file" id="photo" name="photo" accept="image/png, image/jpeg" required />
 				
 			</p>
 			<p class="formTitre">
 				<label for="titrePhoto">Titre</label>
-				<input type="text" id="titrePhoto" name="titrePhoto">
+				<input type="text" id="titrePhoto" name="titrePhoto" required>
 			</p>
 			<p class="formCategorie">
 				<label for="categoriePhoto">Catégorie</label>
-				<select name="categoriePhoto" id="categoriePhoto" >
+				<select name="categoriePhoto" id="categoriePhoto" required >
 					<option value=""></option>
 				</select>
 				<i class="fa-solid fa-chevron-down"></i>
 			</p>
-			<button id="btnAjout" class="nonValide">Valider</button>
+			<button id="btnAjout" class="button">Valider</button>
 		</form>
+		<h4  id="notif" class="notif"></h4>
 	</div>
 </div>
 
