@@ -208,6 +208,7 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
 }
 
 footer nav ul {
@@ -396,7 +397,7 @@ footer nav ul {
 		.modaleFormAjout{
 			display: flex;
 			flex-direction: column;
-			height: 80%;
+			height: 75%;
 			width: 70%;
 			gap: 20px;
 			.formPhoto{
@@ -470,7 +471,7 @@ footer nav ul {
 					font-size: 14px;
 					height: 51px;
 					margin-top:10px;
-					margin-bottom: 55px;
+					margin-bottom: 35px;
 					padding-left: 20px;
 					padding-right: 20px;
 					border: none;
@@ -482,7 +483,7 @@ footer nav ul {
 					display: flex;
 					justify-content: end;
 					right: 30px;
-					bottom: 85px;
+					bottom: 65px;
 					pointer-events: none;
 					
 				}
@@ -495,23 +496,39 @@ footer nav ul {
 				text-align: center;
 				border: none;
 				color: white;
-				background-color: #a7a7a7;
+				
 				border-radius: 60px ;
 				height: 45px;
 				width: 100%;
-				.nonValide{
-					background-color: red;
-				}
-				.valide {
-					color: white;
-					background-color: #1D6154;
-					border: black solid 0.1px;
-					cursor: pointer;
-				}
+				
+				
+				
 			}
+			
 		}
-		
-		
-	
+		.notif{
+				margin-top:0px ;
+				height: 5%;
+				font-size: 20px;
+				position: relative;
+				bottom: 20px;
+			}
+		.ajout{
+			color: #28685c;
+		}
+		.echec{
+			color:rgb(252, 71, 17);
+		}
 	}
+}
+.button{
+	background-color: #a7a7a7;
+}
+.valide {
+	background-color: #1D6154;
+	border: black solid 1px;
+	cursor: pointer;
+}
+.nonValide{
+	background-color: rgba(83, 83, 83, 0.336);
 }
